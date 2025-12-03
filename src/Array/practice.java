@@ -1,7 +1,9 @@
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class practice{
     public static void main(String[] args) {
@@ -9,6 +11,7 @@ public class practice{
         Integer[] arr = {6,4,7,3,4,3,1};
 
         testAscendingSort(arr);
+        testHashMap(arr);
         testBinarySearch(arr);
         testDecendingSort(arr);
         testMultiDimensional();
@@ -67,6 +70,15 @@ public class practice{
 
         System.out.println(Arrays.toString(array));
 
+    }
+
+    public static void testHashMap(Integer[] arr){
+        System.out.println();
+        Map<Integer,Integer> map = new HashMap<>();
+        for(int x : arr){
+            map.put(x, map.getOrDefault(x, 0)+1);
+        }
+        System.out.println(map);
     }
 
 }
