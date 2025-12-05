@@ -1,4 +1,5 @@
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -6,17 +7,30 @@ import java.util.List;
 import java.util.Map;
 
 public class practice{
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        Integer[] arr = {6,4,7,3,4,3,1};
+        // Integer[] arr = {6,4,7,3,4,3,1};
 
-        testAscendingSort(arr);
-        testHashMap(arr);
-        testBinarySearch(arr);
-        testDecendingSort(arr);
-        testMultiDimensional();
-        testReverseArray();
-    
+        // testAscendingSort(arr);
+        // testHashMap(arr);
+        // testBinarySearch(arr);
+        // testDecendingSort(arr);
+        // testMultiDimensional();
+        // testReverseArray();
+
+        // BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        // StringTokenizer st;
+        // st = new StringTokenizer(br.readLine());
+
+        // int n = Integer.parseInt(st.nextToken());
+        // int m = Integer.parseInt(st.nextToken());
+        // System.out.println(n);
+        // System.out.println(m);
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("answer").append("\n");
+        System.out.print(sb.toString());
     }
 
     public static void testAscendingSort(Integer[] arr){
@@ -82,3 +96,4 @@ public class practice{
     }
 
 }
+
