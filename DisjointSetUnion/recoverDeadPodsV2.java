@@ -38,7 +38,7 @@ public class recoverDeadPodsV2{
 
         parent = new int[n + 1];
         size = new int[n + 1];
-        aliveSet = (TreeSet<Integer>[]) new TreeSet[n + 1];
+        aliveSet = new TreeSet[n + 1];
 
         for (int i = 1; i <= n; i++) {
             parent[i] = i;
@@ -64,7 +64,6 @@ public class recoverDeadPodsV2{
                 aliveSet[root].remove(pod);
 
             } else {
-
                 int root = find(pod);
                 if (aliveSet[root].isEmpty()) result.add(-1);
                 else result.add(aliveSet[root].first());

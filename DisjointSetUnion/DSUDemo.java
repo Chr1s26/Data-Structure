@@ -9,7 +9,7 @@ public class DSUDemo{
 
         System.out.println(compMin[find(1)]);
         System.out.println(compMin[find(3)]);
-        System.out.println(compMin[find(4)]);
+        System.out.println(compMin[find(3)]);
     }
 
     public static void init(int n){

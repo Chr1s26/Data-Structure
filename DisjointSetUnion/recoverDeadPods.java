@@ -57,28 +57,28 @@ public class recoverDeadPods{
 
         // bufferedReader.close();
         // bufferedWriter.close();
+
+        //if query 1 and node is alive, send that node. 
+        //if query 1 and node is dead, find compMin (who is alive) and send to it. If no one alive = -1
+        //if query 2, kill node and if node is compMin , find another compMin
+
+
         int n = 5;  
 
        
         List<List<Integer>> connections = new ArrayList<>();
         connections.add(Arrays.asList(1, 2));
-        connections.add(Arrays.asList(2, 3));
-        connections.add(Arrays.asList(4, 5));
+        connections.add(Arrays.asList(2,3));
+        connections.add(Arrays.asList(4,5));
 
         List<List<Integer>> queries = new ArrayList<>();
-        queries.add(Arrays.asList(1, 1)); // send to 1
-        queries.add(Arrays.asList(2, 2)); // kill 2
-        queries.add(Arrays.asList(1, 2)); // send to 2
-        queries.add(Arrays.asList(2, 1)); // kill 1
-        queries.add(Arrays.asList(1, 3)); // send to 3
-        queries.add(Arrays.asList(2, 3)); // kill 3
-        queries.add(Arrays.asList(1, 1)); // send to 1
+        
+        queries.add(Arrays.asList(1,2));
 
-        // --- call your method ---
+
         List<Integer> result =
                 recoverDeadPods(n, connections, queries);
 
-        // --- print results ---
         for (int r : result) {
             System.out.println(r);
         }
@@ -128,10 +128,14 @@ public class recoverDeadPods{
                     compMin[root] = findNextAlive(root,n);
                 }
             }else{
-                int root = find(pod);
-                int receiver = compMin[root];
-                if(receiver > n) receiver = -1;
-                result.add(receiver);
+                if(alive[pod]){
+                    result.add(pod);
+                }else{
+                    int root = find(pod);
+                    int receiver = compMin[root];
+                    if(receiver > n) receiver = -1;
+                    result.add(receiver);
+                }
             }
          }
 
