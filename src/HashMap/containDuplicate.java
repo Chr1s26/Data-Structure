@@ -15,15 +15,12 @@ public class containDuplicate {
         for (int i = 0; i < nums.length; i++) {
             int num = nums[i];
 
-            // If number was seen before AND distance ≤ k
             if (map.containsKey(num)) {
                 int prevIndex = map.get(num);
                 if (i - prevIndex <= k) {
                     return true;
                 }
             }
-
-            // Update latest index of this number
             map.put(num, i);
         }
 

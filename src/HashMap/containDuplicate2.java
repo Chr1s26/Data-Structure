@@ -13,14 +13,11 @@ public class containDuplicate2{
         HashMap<Integer,Integer> ans = new HashMap<>();
         for(int i = 0; i < nums.length; i++){
             if(ans.containsKey(nums[i])){
-                if(k >= Math.abs(i - ans.get(nums[i]))){
+                if(k >= i - ans.get(nums[i])){
                     return true;
-                }else{
-                    ans.put(nums[i],i);
                 }
-            }else{
-                ans.put(nums[i],i);
             }
+            ans.put(nums[i],i);
         }
         return false;
     }
