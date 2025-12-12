@@ -10,24 +10,20 @@ public class validAnagram{
     }
 
     public static boolean isvalidAnagram(String s, String t){
+        if (s.length() != t.length()) return false;
+
         Map<Character,Integer> ans = new HashMap<>();
-        for(int i = 0; i < s.length(); i++){
-            if(ans.containsKey(s.charAt(i))){
-                ans.put(s.charAt(i), ans.get(s.charAt(i))+1);
-            }else{
-                ans.put(s.charAt(i),1);
-            }
+        for (char c : s.toCharArray()) {
+            ans.put(c, ans.getOrDefault(c, 0) + 1);
         }
 
-        for(int j = 0; j < t.length(); j++){
-            if(ans.containsKey(t.charAt(j))){
-                if(ans.get(t.charAt(j)) == 1) ans.remove(t.charAt(j));
-                else ans.put(t.charAt(j),ans.get(t.charAt(j))-1);
-            }else{
-                return false;
-            }
+        for (char c : t.toCharArray()) {
+            if (!ans.containsKey(c)) return false;
+            ans.put(c, ans.get(c) - 1);
+            if (ans.get(c) == 0) ans.remove(c);
         }
 
-        return true;
+
+        return ans.isEmpty();
     }
 }
