@@ -14,7 +14,7 @@ public class containDuplicate {
 
         for (int i = 0; i < nums.length; i++) {
             int num = nums[i];
-
+          
             if (map.containsKey(num)) {
                 int prevIndex = map.get(num);
                 if (i - prevIndex <= k) {

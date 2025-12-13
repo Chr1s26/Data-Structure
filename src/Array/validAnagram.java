@@ -7,7 +7,7 @@ public class validAnagram{
 
     public static boolean isValidAnagram(String s, String t){
         if(s.length() != t.length()) return false;
-        int[] count = new int[25];
+        int[] count = new int[26];
 
         for(char c : s.toCharArray()){
             count[c - 'a']++;
