@@ -7,6 +7,23 @@ public class substringsOfSizeThreeWithDistinctCharacters{
         System.out.print(count);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public static int countGoodSubstrings(String s){
 
         int count = 0;

@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class practice{
+public class arrayPractice{
     public static void main(String[] args) throws IOException {
 
         // Integer[] arr = {6,4,7,3,4,3,1};
