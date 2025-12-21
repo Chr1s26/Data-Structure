@@ -38,7 +38,9 @@ public class doublyCircularLinkedList{
 
     }
 
-    void deleteHead() {
+
+    //O(1)
+    public static void deleteHead() {
         if (head == null) return;
 
         if (head == tail) {
@@ -51,7 +53,9 @@ public class doublyCircularLinkedList{
         tail.next = head;
     }
 
-    void deleteTail() {
+
+    //O(1)
+    public static void deleteTail() {
         if (tail == null) return;
 
         if (head == tail) {
@@ -64,7 +68,42 @@ public class doublyCircularLinkedList{
         head.prev = tail;
     }
 
-    void printForward() {
+    public static void delete(int value){
+        if(head == null) return;
+
+        if(head == tail && head.data == value){
+            head = tail = null;
+            return;
+        }
+
+        if(head.data == value){
+            head = head.next;
+            head.prev = tail;
+            tail.next = head;
+            return;
+        }
+
+        Node temp = head;
+        while(temp != head && temp.data != value){
+            temp = temp.next;
+        }
+
+        if(temp == head){
+            return;
+        }
+
+        if(temp == tail){
+            tail = temp.prev;
+            tail.next = head;
+            head.prev = tail;
+        }
+        else{
+            temp.prev.next = temp.next;
+            temp.next.prev = temp.prev;
+        }
+    }
+
+    public static void printForward() {
         if (head == null) return;
 
         Node temp = head;
@@ -88,4 +127,6 @@ public class doublyCircularLinkedList{
             this.next = null;
         }
     }
+
+
 }

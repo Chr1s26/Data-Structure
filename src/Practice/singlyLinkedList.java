@@ -2,13 +2,17 @@
 public class singlyLinkedList{
     static Node head;
     public static void main(String[] args){
-        
+        System.out.println("Testing address");
         head = new Node(2);
         insertAtHead(1);
         printList();
         insertAtTail(3);
         insertAtTail(4);
+        Node dummy = new Node(111);
+        Node temp = head;
+        temp.next = dummy;
         printList();
+        System.out.println("----------------");
         deleteAtHead();
         printList();
         delete(3);

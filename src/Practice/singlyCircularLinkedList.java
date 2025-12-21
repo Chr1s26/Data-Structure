@@ -45,6 +45,53 @@ public class singlyCircularLinkedList{
         tail.next = head;
     }
 
+    public static void deleteTail(){
+        if(head == null)return;
+
+        if(head == tail){
+            head = tail = null;
+            return;
+        }
+
+        Node temp = head;
+        if(temp.next != tail){
+            temp = temp.next;
+        }
+        temp.next = head;
+        tail = temp;
+    }
+
+    public static void delete(int value) {
+    if (head == null) return;
+
+    
+    if (head == tail && head.data == value) {
+        head = tail = null;
+        return;
+    }
+
+    if (head.data == value) {
+        head = head.next;
+        tail.next = head;
+        return;
+    }
+
+    Node curr = head;
+
+    while (curr.next != head && curr.next.data != value) {
+        curr = curr.next;
+    }
+
+    if (curr.next == head) return;
+
+    if (curr.next == tail) {
+        tail = curr;
+    }
+
+    curr.next = curr.next.next;
+}
+
+
     public static void print(){
         if(head == null) return;
         Node temp = head;
