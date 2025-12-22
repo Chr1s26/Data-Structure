@@ -71,7 +71,9 @@ public class queuePractice{
         pq.offer(100);
         pq.offer(10);
         pq.offer(1);
-        System.out.println(pq);
+        pq.offer(100);
+        System.out.println("**PQ**");
+        System.out.println(pq.poll());
         Queue<Integer> pq1 = new PriorityQueue<>((a,b) -> b - a);
         pq1.offer(100);
         pq1.offer(10);
@@ -83,6 +85,7 @@ public class queuePractice{
         pq2.offer(new int[]{1,5});
         pq2.offer(new int[]{2,1});
         pq2.offer(new int[]{3,7});
+        System.out.println(pq2);
         System.out.println(pq2.poll()[1]);
         Queue<int[]> pq3 = new PriorityQueue<>((a,b) -> b[1] - a[1]);
         pq3.offer(new int[]{1,5});
@@ -108,5 +111,8 @@ public class queuePractice{
         System.out.println(stack);
         stack.pop();
         System.out.println(stack);
+
+        PriorityQueue<Map.Entry<Integer,Integer>> pqTest1 = new PriorityQueue<>((a,b) -> a.getKey() - b.getKey());
+        PriorityQueue<Map.Entry<Integer,List<Integer>>> pqTest2 = new PriorityQueue<>((a,b) -> a.getValue().get(0) - b.getValue().get(0));
     }
 }

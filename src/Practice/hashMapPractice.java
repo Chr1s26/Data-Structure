@@ -1,11 +1,11 @@
 
-import java.util.HashMap;
+import java.util.*;
 
 public class hashMapPractice{
     public static void main(String[] args){
 
         //mostly O(1) but worst case O(n)
-        HashMap<Character,Integer> hm1 = new HashMap<>();
+        Map<Character,Integer> hm1 = new HashMap<>();
         hm1.put('a',1);  //O(1)
         hm1.put('b',2);
         System.out.println(hm1);

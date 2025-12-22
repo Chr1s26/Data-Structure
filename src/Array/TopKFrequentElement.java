@@ -20,7 +20,14 @@ public class TopKFrequentElement{
         for(int i : ans3){
             System.out.print(i);
         }
+
+        System.err.println("");
+        int[] ans4 = test(new int[]{1}, 1);
+        for(int i : ans4){
+            System.out.print(i);
+        }
     }
+
 
     public static int[] topKFrequent(int[] nums, int k){
         int[] ans = new int[k];
@@ -68,7 +75,7 @@ public class TopKFrequentElement{
 
         @SuppressWarnings("unchecked")
         List<Integer>[] bucket = new ArrayList[nums.length+1];
-
+      
         for(int key : map.keySet()){
             int value = map.get(key);
             if(bucket[value] == null) bucket[value] = new ArrayList<>();
@@ -83,6 +90,29 @@ public class TopKFrequentElement{
                 }
             }
         }
+        return ans;
+    }
+
+    public static int[] test(int[] nums, int k){
+        int[] ans = new int[k];
+        Map<Integer,Integer> hm = new HashMap<>();
+        
+        for(int i = 0; i < nums.length; i++){
+            hm.put(nums[i],hm.getOrDefault(nums[i] , 0)+1);
+        }
+
+        PriorityQueue<int[]> maxHeap = new PriorityQueue<>((a,b) -> b[1] - a[1]);
+        for(int key : hm.keySet()){
+            int[] temp = new int[2];
+            temp[0] = key;
+            temp[1] = hm.get(key);
+            maxHeap.offer(temp);
+        }
+
+        for(int i = 0 ; i < k; i++){
+            ans[i] = maxHeap.poll()[0];
+        }
+
         return ans;
     }
 

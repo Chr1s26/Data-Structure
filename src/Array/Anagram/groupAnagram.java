@@ -16,7 +16,44 @@ public class groupAnagram{
         for(List<String> a : ans2){
             System.out.println(a);
         }
+        List<List<String>> ans3 = groupAnagramsI(strs);
+        for(List<String> a : ans3){
+            System.out.println(a);
+        }
     }
+
+
+    public static List<List<String>> groupAnagramsI(String[] strs){
+        
+        HashMap<String,List<String>> hm = new HashMap<>();
+        
+        for(String s : strs){
+            int[] count = new int[26];
+            for(char c : s.toCharArray()){
+                count[c - 'a']++;
+            }
+
+            StringBuilder sb = new StringBuilder();
+            for(int c : count){
+                sb.append(c);
+            }
+
+            
+            if(hm.get(sb.toString()) == null) {
+                List<String> ls = new ArrayList<>();
+                ls.add(s);
+                hm.put(sb.toString(), ls);
+            }else{
+                List<String> ls = hm.get(sb.toString());
+                ls.add(s);
+                hm.put(sb.toString(), ls);
+            }
+        
+        }
+        return new ArrayList<>(hm.values());
+    }
+
+
 
     public static List<List<String>> groupAnagrams(String[] strs){
         List<List<String>> ans = new ArrayList<>();
