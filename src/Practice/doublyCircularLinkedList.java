@@ -68,6 +68,7 @@ public class doublyCircularLinkedList{
         head.prev = tail;
     }
 
+    //O(n)
     public static void delete(int value){
         if(head == null) return;
 
