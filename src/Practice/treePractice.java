@@ -22,6 +22,9 @@ public class treePractice{
         System.out.println();
 
         levelOrder(root); 
+        System.out.println();
+        System.out.println("Count Nodes" + countNodes(root));
+        System.out.println("Max Depth" + height(root));
     }
 
     public static TreeNode insert(TreeNode root, int val){
@@ -117,18 +120,34 @@ public class treePractice{
         }
     }
 
+    //leet code problem (find max height)
     public static int height(TreeNode root){
         if(root == null) return 0;
-        return 1 + Math.max(height(root.left),height(root.right));
+        int left = height(root.left);
+        int right = height(root.right);
+        return 1 + Math.max(left,right);
     }
 
+    //leet code problem (find nodes)
     public static int countNodes(TreeNode root){
+        int count = 0;
         if(root == null) return 0;
-        return 1 + countNodes(root.left) + countNodes(root.right);
+        count += countNodes(root.left);
+        count += countNodes(root.right);
+        return 1 + count;
     }
 
     public static boolean isEmpty(TreeNode root){
         return root == null;
+    }
+
+    //leet code problems (invert tree)
+    public static TreeNode invertTree(TreeNode root) {
+        if(root == null) return null;
+        TreeNode temp = invertTree(root.right);
+        root.right = invertTree(root.left);
+        root.left = temp;
+        return root;
     }
 
     static class TreeNode{
