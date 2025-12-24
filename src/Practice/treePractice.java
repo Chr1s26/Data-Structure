@@ -88,7 +88,7 @@ public class treePractice{
     public static List<List<Integer>> levelOrderI(TreeNode root){
         List<List<Integer>> res = new ArrayList<>();
         if(root == null) return res;
-
+            
         Queue<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
 
