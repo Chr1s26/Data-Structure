@@ -150,6 +150,19 @@ public class treePractice{
         return root;
     }
 
+    //leet code is Valid Binary Tree
+    //Leet code given method 
+    //boolean isValidBST(TreeNode root) {
+    //return validate(root, Long.MIN_VALUE, Long.MAX_VALUE);}
+
+    public boolean isValid(TreeNode root,long min, long max){
+        if(root == null) return true;
+
+        if(root.val <= min || root.val >= max) return false;
+
+        return isValid(root.left,min,root.val) && isValid(root.right,root.val,max);
+    }
+
     static class TreeNode{
         int val;
         TreeNode left;
