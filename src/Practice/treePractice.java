@@ -155,12 +155,25 @@ public class treePractice{
     //boolean isValidBST(TreeNode root) {
     //return validate(root, Long.MIN_VALUE, Long.MAX_VALUE);}
 
-    public boolean isValid(TreeNode root,long min, long max){
+    public static boolean isValid(TreeNode root,long min, long max){
         if(root == null) return true;
 
         if(root.val <= min || root.val >= max) return false;
 
         return isValid(root.left,min,root.val) && isValid(root.right,root.val,max);
+    }
+
+    public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if(root == null || root == p || root == q){
+           return root;
+        } 
+
+        TreeNode lNode = lowestCommonAncestor(root.left,p,q); 
+        TreeNode rNode = lowestCommonAncestor(root.right,p,q);
+
+        if(lNode != null && rNode != null) return root;
+
+        return lNode != null ? lNode : rNode;
     }
 
     static class TreeNode{
