@@ -21,6 +21,18 @@ public class reverseLinkedList{
         return head;
     }
 
+    public static ListNode reverseListV1(ListNode head) {
+        if(head == null || head.next == null) return head;
+
+        //temp = 5, head = 3
+        ListNode temp = reverseList(head.next);
+        
+        head.next.next = head;
+        head.next = null;
+
+        return temp; 
+    }
+
 static class ListNode {
       int val;
       ListNode next;
