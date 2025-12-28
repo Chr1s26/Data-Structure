@@ -1,6 +1,6 @@
 public class SingleNumber{
     public static void main(String[] args){
-
+        System.out.println(findSingleNumber(new int[]{1,1,2,2}));
     }
 
     public static int findSingleNumber(int[] nums){

@@ -15,7 +15,6 @@ public class maxSumofSubarrayofSizeK{
         for(int j = k; j < arr.length; j++){
             sum += arr[j];
             sum -= arr[j-k];
-            System.out.println(sum);
             max = Math.max(sum, max);
         }
 

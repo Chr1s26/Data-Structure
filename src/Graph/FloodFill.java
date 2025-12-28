@@ -21,7 +21,6 @@ public class FloodFill{
             }
             System.out.println();
         }
-        
     }
 
     public static int[][] floodFillV1(int[][] image, int sr, int sc, int color) {

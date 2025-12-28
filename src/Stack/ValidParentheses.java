@@ -6,22 +6,23 @@ public class ValidParentheses{
         System.out.println(isValid("{}"));
     }
 
-    public static boolean isValid(String s){
-        if(s.length() % 2 != 0) return false;
+public static boolean isValid(String s) {
+    Deque<Character> stack = new ArrayDeque<>();
 
-        int half = s.length() / 2;
-        Deque<Character> q = new ArrayDeque();
-        for(int i = 0; i < half; i++){
-            q.push(s.charAt(i));
-        }
+    for (char c : s.toCharArray()) {
+        if (c == '(' || c == '{' || c == '[') {
+            stack.push(c);
+        } else {
+            if (stack.isEmpty()) return false;
 
-        for(int j = half; j < s.length(); j++){
-            char temp = q.pop();
-            char c = s.charAt(j);
-            if(temp != c) {
-                return false;
-            }
+            char open = stack.pop();
+            if (c == ')' && open != '(') return false;
+            if (c == '}' && open != '{') return false;
+            if (c == ']' && open != '[') return false;
         }
-        return true;
     }
+
+    return stack.isEmpty();
+}
+
 }

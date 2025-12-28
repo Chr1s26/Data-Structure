@@ -54,4 +54,34 @@ public class binarySequenceRecursion {
         // return count;
         return count1;
     }
+
+     public static List<List<Integer>> generateBinarySequenceV1(int n) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> current = new ArrayList<>();
+
+        dfs(0, n, current, result);
+        return result;
+    }
+
+    private static void dfs(int index, int n,
+                            List<Integer> current,
+                            List<List<Integer>> result) {
+
+        // 🔹 Base case: all positions decided
+        if (index == n) {
+            result.add(new ArrayList<>(current)); // save COPY
+            return;
+        }
+
+        // 🔹 Choice 1: put 0
+        current.add(0);
+        dfs(index + 1, n, current, result);
+        current.remove(current.size() - 1); // backtrack
+
+        // 🔹 Choice 2: put 1
+        current.add(1);
+        dfs(index + 1, n, current, result);
+        current.remove(current.size() - 1); // backtrack
+    }
+
 }

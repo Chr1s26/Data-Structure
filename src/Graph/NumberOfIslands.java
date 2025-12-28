@@ -19,7 +19,9 @@ public class NumberOfIslands{
     }
 
     public static void dfs(int row, int col, boolean[][] visited, char[][] grid){
+        
         visited[row][col] = true;
+
         if(col + 1 < grid[0].length && !visited[row][col+1] && grid[row][col+1] == '1'){
             dfs(row,col+1,visited,grid);
         }
