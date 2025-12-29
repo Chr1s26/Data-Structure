@@ -90,13 +90,15 @@ public class stringPractice{
         //s.matches("\\d+"); Check if string is digits only
         //s.replaceAll("\\s+", ""); Remove all spaces
 
-        String s11 = " I  love You  java  ";
-        String[] s11Arr = s11.trim().split("//s+");
-        for(String s : s11Arr) System.out.println(s); //trim => O(n)
+        String s11 = " I  love You      java  ";
+        String[] s11Arr = s11.trim().split("\\s+");
+        for(String s : s11Arr) System.out.print(s); //trim => O(n)
+        System.out.println("-----------------------------");
         String s12 = "a,b,c,d";
-        String[] s12Arr = s12.split(",",2);
+        String[] s12Arr = s12.split(",");
         //Split once (limit − 1)
         for(String s : s12Arr) System.out.println(s);
+         System.out.println("-----------------------------");
         //s.matches("[a-z]+");
         //s.replaceAll("[^a-zA-Z]", ""); ^ negation so replace if number or - or sign.
 

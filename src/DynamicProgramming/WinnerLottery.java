@@ -21,7 +21,7 @@ public class WinnerLottery{
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
 
-                int convertCost = cost(lotteryID.charAt(i - 1), winnerID.charAt(j - 1));
+                int convertCost = cost(lotteryID.charAt(i - 1), winnerID.charAt(j - 1)); // 1
 
                 for (int c = 0; c <= k; c++) {
 
@@ -29,7 +29,7 @@ public class WinnerLottery{
 
                     dp[i][j][c] = Math.max(dp[i][j][c], dp[i][j - 1][c]);
 
-                    if (c >= convertCost) {
+                    if (c >= convertCost) { // 0 > 1
                         dp[i][j][c] = Math.max(
                             dp[i][j][c],
                             1 + dp[i - 1][j - 1][c - convertCost]
@@ -48,10 +48,11 @@ public class WinnerLottery{
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String lotteryID = "hacker";
-        String winnerID = "hacker";
-        int k = 10;
+        String lotteryID = "abc";
+        String winnerID = "cde";
+        int k = 4;
 
         System.out.println(getMaximumLength(lotteryID, winnerID, k));
+
     }
 }
