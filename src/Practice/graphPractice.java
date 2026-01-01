@@ -10,7 +10,6 @@ public class graphPractice{
 
         graph.get(0).add(1);
         graph.get(1).add(0);
-        
     }
 
     public static void dfs(int node, boolean[] visited, List<List<Integer>> graph){
@@ -22,10 +21,10 @@ public class graphPractice{
         }
     }
 
-    public static void bfs(int node, boolean[] visited, List<List<Integer>> graph){
-        visited[node] = true;
+    public static void bfs(int node,boolean[] visited, List<List<Integer>> graph){
         Queue<Integer> q = new ArrayDeque<>();
         q.offer(node);
+        visited[node] = true;
         while(!q.isEmpty()){
             int temp = q.poll();
             for(int nei : graph.get(temp)){
@@ -49,12 +48,12 @@ public class graphPractice{
         return count;
     }
 
-    //Directed Graph
+    //UnDirected Graph
     public static boolean hasCycle(int node,int parent,boolean[] visited,List<List<Integer>> graph){
         visited[node] = true;
         for(int nei : graph.get(node)){
             if(!visited[nei]){
-                if(hasCycle(nei,node,visited,graph)){
+                if(hasCycle(nei,node,visited,graph)){ //tnn p return pyn loh ma ya cause false so yin need to travel other node
                     return true;
                 }
             }else if(nei != parent){
@@ -64,6 +63,7 @@ public class graphPractice{
         return false;
     }
 
+    //Directed Graph
     public static boolean hasCycle(int node, boolean[] visited, boolean[] inStack,List<List<Integer>> graph) {
         visited[node] = true;
         inStack[node] = true;
@@ -77,7 +77,7 @@ public class graphPractice{
                 return true;
             }
         }
-        inStack[node] = false; //important
+        inStack[node] = false; //*** important
         return false;
     }
 
@@ -87,7 +87,8 @@ public class graphPractice{
 
         for(int i = 0; i < n; i++){
             for(int nei : graph.get(i)){
-                inDegree[nei]++;
+                inDegree[nei]++; // we don't need to test visited cause we want indegree, we are allowed to travel 
+                // visited node cause we want to count indegree
             }
         }
 

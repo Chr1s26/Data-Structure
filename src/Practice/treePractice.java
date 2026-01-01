@@ -141,6 +141,18 @@ public class treePractice{
         return root == null;
     }
 
+
+    public static boolean isValidBSTV1(TreeNode root){
+        if(root == null) return true;
+        if(root.left == null && root.right == null) return true;
+        return dfs(root,Long.MIN_VALUE,Long.MAX_VALUE);
+    }
+
+
+
+
+
+
     //leet code problems (invert tree)
     public static TreeNode invertTree(TreeNode root) {
         if(root == null) return null;
@@ -161,6 +173,21 @@ public class treePractice{
         if(root.val <= min || root.val >= max) return false;
 
         return isValid(root.left,min,root.val) && isValid(root.right,root.val,max);
+    }
+
+
+    public static boolean isValidBSTV1(TreeNode root,long min, long max){
+        boolean flag = true;
+        if(root == null) return true; 
+
+        if(root.val <= min || root.val >= max){
+            return false;
+        } 
+
+        flag &= isValidBSTV1(root.left,min,root.val); 
+        flag &= isValidBSTV1(root.right,root.val,max);
+
+        return flag;
     }
 
     public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
