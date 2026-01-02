@@ -3,11 +3,12 @@ import java.util.*;
 
 public class PascalTriangle{
     public static void main(String[] args){
-        List<List<Integer>> ans = generate(5);
+        List<List<Integer>> ans = generateV1(5);
         for(List<Integer> l : ans){
             for(int c : l){
                 System.out.print(c);
             }
+            System.out.println();
         }
     }
     
