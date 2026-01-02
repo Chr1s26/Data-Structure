@@ -36,6 +36,8 @@ public class queuePractice{
         System.out.println(q4);
         q4.pollLast();
         System.out.println(q4);
+        q4.offerFirst(1);
+        System.out.println("*****************"+q4);
         //contains(5)  //O(n)
 
 
@@ -112,7 +114,9 @@ public class queuePractice{
         stack.pop();
         System.out.println(stack);
 
+
         PriorityQueue<Map.Entry<Integer,Integer>> pqTest1 = new PriorityQueue<>((a,b) -> a.getKey() - b.getKey());
+        
         PriorityQueue<Map.Entry<Integer,List<Integer>>> pqTest2 = new PriorityQueue<>((a,b) -> a.getValue().get(0) - b.getValue().get(0));
     }
 }

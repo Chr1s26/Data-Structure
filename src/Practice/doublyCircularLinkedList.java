@@ -128,6 +128,4 @@ public class doublyCircularLinkedList{
             this.next = null;
         }
     }
-
-
 }

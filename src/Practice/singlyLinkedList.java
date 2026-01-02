@@ -104,4 +104,5 @@ public class singlyLinkedList{
             this.next = null;
         }
     }
+
 }
