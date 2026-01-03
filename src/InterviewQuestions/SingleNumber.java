@@ -12,3 +12,22 @@ public class SingleNumber{
         return xor;
     }
 }
+
+// swapping without temp
+// a = a ^ b;
+// b = a ^ b;
+// a = a ^ b;
+
+// Bitwise Shift Operator
+// << left shift.   3 << 1 =>   011 -> 0110   => 6   same as  3 x 2 ^ 1
+// 3 << 2 =>  011 -> 01100 => 12    same as 3 x 2 ^ 2
+
+// right shift work same 
+// trick =>.  3 >> 1 => 3 / 2 = 1
+// 3 >> 2 => 3 / 2 ^ 2 = 0
+
+
+// -4 >> 1    // stays negative
+// -4 >>> 1   // becomes positive
+
+// (x >> k) & 1
