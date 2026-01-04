@@ -14,6 +14,7 @@ public class queuePractice{
         Queue<Integer> q3 = new PriorityQueue<>();
 
         Deque<Integer> q4 = new ArrayDeque<>();
+    
         // Deque<Integer> q5 = new LinkedList<>();
 
         //add first in first out
