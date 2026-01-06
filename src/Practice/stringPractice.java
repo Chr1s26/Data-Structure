@@ -49,6 +49,7 @@ public class stringPractice{
         String s6 = "Apple"; 
         //"app".compareTo("apple"); all characters match, shorter come first so negative
         //compareTo() compares two strings character by character using Unicode values and returns the difference at the first mismatching position.
+        System.out.println("Compare *********");
         System.out.println(s4.compareTo(s5)); 
         System.out.println(s5.compareTo(s4));  //O(n)
         System.out.println(s4.compareTo(s6));
@@ -62,6 +63,7 @@ public class stringPractice{
         // 0 1 2 3 4 5
 
         
+        System.out.println("Split *********");
         String s8 =  "   hello world   ";
         String[] sArr = s8.split(" "); //O(n)
         for(String s : sArr) System.out.println(s);
@@ -92,7 +94,7 @@ public class stringPractice{
 
         String s11 = " I  love You      java  ";
         String[] s11Arr = s11.trim().split("\\s+");
-        for(String s : s11Arr) System.out.print(s); //trim => O(n)
+        for(String s : s11Arr) System.out.println(s); //trim => O(n)
         System.out.println("-----------------------------");
         String s12 = "a,b,c,d";
         String[] s12Arr = s12.split(",");
@@ -120,6 +122,8 @@ public class stringPractice{
         sb.insert(2,"t"); //O(n)
         System.out.println(sb);
         
+
+        System.out.println("****");
         StringBuilder sb1 = new StringBuilder("Hello");
         sb1.delete(0,3); //O(n)
         System.out.println(sb1);
