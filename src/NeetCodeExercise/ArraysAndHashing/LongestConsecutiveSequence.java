@@ -27,6 +27,7 @@ public class LongestConsecutiveSequence{
     }
 
         // total time complexity = n log n
+        //space = 1
     public int longestConsecutiveV2(int[] nums) {
         if(nums.length == 0) return 0;
         //sort time complexity n log(n)
