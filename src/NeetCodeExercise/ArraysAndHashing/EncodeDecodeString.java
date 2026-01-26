@@ -6,7 +6,6 @@ public class EncodeDecodeString{
         for(int i = 0; i < strs.size(); i++){
             sb.append(strs.get(i).length()).append('#').append(strs.get(i));
         }
-
         return sb.toString();
     }
 
@@ -25,8 +24,8 @@ public class EncodeDecodeString{
                 i++;
             }
 
-            //skip #
-            i++; // i = 2
+            //skip # 
+            i++; // i = 3,5,6,7,3,1,2
 
             String word = str.substring(i,i+len);
             li.add(word);
